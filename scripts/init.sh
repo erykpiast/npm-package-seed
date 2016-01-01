@@ -1,9 +1,17 @@
 #!/bin/bash
 
-PACKAGE_NAME="$0"
+PACKAGE_NAME="$1"
+USER_NAME=${2:-erykpiast}
+
+echo "Initializing package $PACKAGE_NAME for user $USER_NAME..."
 
 FILES=`find . ! -wholename '*/node_modules/*' ! -wholename '*/.git/*' ! -wholename '*/dist/*' ! -name 'init.sh' -type f  | xargs readlink -e`
 
-echo "$FILES"
+for F in $FILES
+do
+  echo "Processing file $F..."
+	sed -i "s/npm-package-seed/$PACKAGE_NAME/g" "$F"
+	sed -i "s/erykpiast/$USER_NAME/g" "$F"
+done
 
-# sed -i -e "s/npm-package-seed/$PACKAGE_NAME/g" "$FILES"
+echo "Package $PACKAGE_NAME initialized!"
