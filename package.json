@@ -47,7 +47,7 @@
     "chai": "^3.4.1",
     "chai-spies": "^0.7.1",
     "chai-spies-tdd": "^1.0.0",
-    "eslint": "^1.10.3",
+    "eslint": "^2.0.0-beta1",
     "minimist": "^1.2.0",
     "mocha": "^2.3.4"
   }
